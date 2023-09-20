@@ -1,0 +1,114 @@
+* ft_isalpha:
+    * Entrada: Un carácter (int).
+    * Salida: Entero (1 si es una letra alfabética, 0 en caso contrario).
+    * Función: Comprueba si el carácter dado es una letra alfabética.
+
+* ft_isdigit:
+    * Entrada: Un carácter (int).
+    * Salida: Entero (1 si es un dígito decimal, 0 en caso contrario).
+    * Función: Comprueba si el carácter dado es un dígito decimal.
+
+* ft_isalnum:
+    * Entrada: Un carácter (int).
+    * Salida: Entero (1 si es una letra alfabética o un dígito decimal, 0 en caso contrario).
+    * Función: Comprueba si el carácter dado es una letra alfabética o un dígito decimal.
+
+* ft_isascii:
+    * Entrada: Un valor entero (int).
+    * Salida: Entero (1 si está en el rango ASCII válido, 0 en caso contrario).
+    * Función: Comprueba si el valor entero está en el rango ASCII válido (0-127).
+
+* ft_isprint:
+    * Entrada: Un carácter (int).
+    * Salida: Entero (1 si es un carácter imprimible de ASCII, 0 en caso contrario).
+    * Función: Comprueba si el carácter dado es un carácter imprimible de ASCII (32-126).
+
+* ft_strlen:
+    * Entrada: Una cadena de caracteres (string).
+    * Salida: Tamaño de la cadena (size_t).
+    * Función: Calcula la longitud de la cadena de caracteres.
+
+* ft_memset:
+    * Entrada: Un puntero a una región de memoria, un valor byte y un tamaño (void *, int, size_t).
+    * Salida: Un puntero a la región de memoria modificada.
+    * Función: Rellena una región de memoria con un valor byte dado.
+
+* ft_bzero:
+    * Entrada: Un puntero a una región de memoria y un tamaño (void *, size_t).
+    * Salida: Ninguna (void).
+    * Función: Establece los primeros n bytes de una región de memoria en cero.
+
+* ft_memcpy:
+    * Entrada: Punteros a la región de memoria de origen y destino, y un tamaño (void *, const void *, size_t).
+    * Salida: Un puntero a la región de memoria de destino modificada.
+    * Función: Copia una región de memoria de origen a destino.
+
+* ft_memmove:
+    * Entrada: Punteros a la región de memoria de origen y destino, y un tamaño (void *, const void *, size_t).
+    * Salida: Un puntero a la región de memoria de destino modificada.
+    * Función: Copia una región de memoria de origen a destino, manejando solapamientos.
+
+* ft_strlcpy:
+    * Entrada: Un puntero a una cadena de destino, un puntero a una cadena de origen y un tamaño límite (char *, const char *, size_t).
+    * Salida: El tamaño de la cadena copiada (size_t).
+    * Función: Copia una cadena de origen en una cadena de destino con un límite de tamaño y devuelve el tamaño de la cadena copiada.
+
+* ft_strlcat:
+    * Entrada: Un puntero a una cadena de destino, un puntero a una cadena de origen y un tamaño límite (char *, const char *, size_t).
+    * Salida: El tamaño total resultante después de concatenar (size_t).
+    * Función: Concatena dos cadenas con un límite de tamaño en la cadena de destino y devuelve el tamaño total resultante.
+
+* ft_toupper:
+    * Entrada: Un carácter (int).
+    * Salida: El carácter en mayúscula si es una letra minúscula, sin cambios en otros casos (int).
+    * Función: Convierte un carácter en mayúscula si es una letra minúscula.
+
+* ft_tolower:
+    * Entrada: Un carácter (int).
+    * Salida: El carácter en minúscula si es una letra mayúscula, sin cambios en otros casos (int).
+    * Función: Convierte un carácter en minúscula si es una letra mayúscula.
+
+* ft_strchr:
+    * Entrada: Una cadena de caracteres y un carácter a buscar (const char *, int).
+    * Salida: Un puntero a la primera ocurrencia del carácter en la cadena o NULL si no se encuentra (char *).
+    * Función: Encuentra la primera ocurrencia de un carácter en una cadena.
+
+* ft_strrchr:
+    * Entrada: Una cadena de caracteres y un carácter a buscar (const char *, int).
+    * Salida: Un puntero a la última ocurrencia del carácter en la cadena o NULL si no se encuentra (char *).
+    * Función: Encuentra la última ocurrencia de un carácter en una cadena.
+
+* ft_strncmp:
+    * Entrada: Dos cadenas de caracteres y un número de caracteres a comparar (const char *, const char *, size_t).
+    * Salida: Un valor de comparación (int).
+    * Función: Compara los primeros n caracteres de dos cadenas.
+
+* ft_memchr:
+    * Entrada: Un puntero a una región de memoria, un valor byte a buscar y un tamaño (const void *, int, size_t).
+    * Salida: Un puntero a la primera ocurrencia del valor byte en la región de memoria o NULL si no se encuentra (void *).
+    * Función: Encuentra la primera ocurrencia de un valor byte en una región de memoria.
+
+* ft_memcmp:
+    * Entrada: Dos regiones de memoria, un número de bytes a comparar (const void *, const void *, size_t).
+    * Salida: Un valor de comparación (int).
+    * Función: Compara dos regiones de memoria byte a byte hasta n bytes.
+
+* ft_strnstr:
+    * Entrada: Una cadena de destino, una cadena de búsqueda y un tamaño límite (const char *, const char *, size_t).
+    * Salida: Un puntero a la primera ocurrencia de la cadena de búsqueda en la cadena de destino con un límite de tamaño o NULL si no se encuentra (char *).
+    * Función: Encuentra la primera ocurrencia de una subcadena en una cadena con límite de tamaño.
+
+* ft_atoi:
+    * Entrada: Una cadena de caracteres que representa un número (const char *).
+    * Salida: El valor entero convertido de la cadena (int).
+    * Función: Convierte una cadena en un valor entero.
+
+* ft_calloc:
+    * Entrada: El número de elementos y el tamaño en bytes de cada elemento (size_t, size_t).
+    * Salida: Un puntero a la memoria asignada inicializada en cero o NULL si falla la asignación (void *).
+    * Función: Asigna un bloque de memoria contigua para un número especificado de elementos, cada uno de un tamaño específico, e inicializa todos los bytes en cero.
+
+* ft_strdup:
+    * Entrada: Una cadena de caracteres (const char *).
+    * Salida: Un nuevo puntero a una copia duplicada de la cadena o NULL si falla la asignación de memoria (char *).
+    * Función: Crea una copia duplicada de una cadena de caracteres en una nueva área de memoria asignada dinámicamente.
