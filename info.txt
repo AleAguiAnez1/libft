@@ -112,3 +112,53 @@
     * Entrada: Una cadena de caracteres (const char *).
     * Salida: Un nuevo puntero a una copia duplicada de la cadena o NULL si falla la asignación de memoria (char *).
     * Función: Crea una copia duplicada de una cadena de caracteres en una nueva área de memoria asignada dinámicamente.
+
+* ft_substr:
+    * Entrada: Una cadena de caracteres (char const *s), un índice de inicio sin signo (unsigned int start), y una longitud sin signo (size_t len).
+    * Salida: Una nueva cadena de caracteres (char *) o NULL si falla la asignación de memoria.
+    * Función: Reserva (con malloc) y devuelve una subcadena de la cadena 's'. La subcadena comienza en el índice 'start' y tiene una longitud máxima de 'len'.
+
+* ft_strjoin:
+    * Entrada: Dos cadenas de caracteres (char const *s1 y char const *s2).
+    * Salida: Una nueva cadena de caracteres (char *) o NULL si falla la asignación de memoria.
+    * Función: Reserva (con malloc) y devuelve una nueva cadena que es la concatenación de 's1' y 's2'.
+
+* ft_strtrim:
+    * Entrada: Una cadena de caracteres (char const *s1) y un conjunto de caracteres a eliminar (char const *set).
+    * Salida: Una nueva cadena de caracteres (char *) o NULL si falla la asignación de memoria.
+    * Función: Elimina todos los caracteres en 'set' desde el principio y el final de 's1' hasta encontrar un carácter que no esté en 'set'. Luego, devuelve la cadena resultante.
+
+* ft_split:
+    * Entrada: Una cadena de caracteres (char const *s) y un carácter delimitador (char c).
+    * Salida: Un array de nuevas cadenas de caracteres (char **) o NULL si falla la asignación de memoria. El array debe terminar con un puntero NULL.
+    * Función: Reserva (con malloc) y devuelve un array de nuevas cadenas resultantes de dividir la cadena 's' en subcadenas utilizando el carácter 'c' como delimitador.
+
+* ft_itoa:
+    * Entrada: Un número entero (int n).
+    * Salida: Una nueva cadena de caracteres (char *) o NULL si falla la asignación de memoria.
+    * Función: Utilizando malloc, genera una cadena que represente el valor entero 'n'. También debe gestionar números negativos.
+
+* ft_strmapi:
+    * Entrada: Una cadena de caracteres (char const *s) y una función (char (*f)(unsigned int, char)).
+    * Salida: Una nueva cadena de caracteres (char *) o NULL si falla la asignación de memoria.
+    * Función: Aplica la función 'f' a cada carácter de la cadena 's', pasando el índice de cada carácter y el propio carácter como argumentos. Luego, genera una nueva cadena con el resultado.
+
+* ft_striteri:
+    * Entrada: Una cadena de caracteres (char *s) y una función (void (*f)(unsigned int, char*)).
+    * Salida: Nada.
+    * Función: Aplica la función 'f' a cada carácter de la cadena 's', pasando el índice de cada carácter y un puntero al carácter como argumentos. La función 'f' puede modificar el carácter si es necesario.
+
+* ft_putchar_fd:
+    * Entrada: Un carácter (char c) y un descriptor de archivo (int fd).
+    * Salida: Nada.
+    * Función: Envía el carácter 'c' al descriptor de archivo especificado.
+
+* ft_putstr_fd:
+    * Entrada: Una cadena de caracteres (char *s) y un descriptor de archivo (int fd).
+    * Salida: Nada.
+    * Función: Envía la cadena 's' al descriptor de archivo especificado.
+
+* ft_putendl_fd:
+    * Entrada: Una cadena de caracteres (char *s) y un descriptor de archivo (int fd).
+    * Salida: Nada.
+    * Función: Envía la cadena 's' al descriptor de archivo especificado, seguida de un salto de línea.

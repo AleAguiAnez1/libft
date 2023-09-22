@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaguirr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 12:17:38 by alaguirr          #+#    #+#             */
-/*   Updated: 2023/09/13 12:53:49 by alaguirr         ###   ########.fr       */
+/*   Created: 2023/09/21 11:05:12 by alaguirr          #+#    #+#             */
+/*   Updated: 2023/09/21 11:07:02 by alaguirr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*dst;
-	unsigned char	*source;
+	size_t	s_len;
+	size_t	i;
+	char	*substr;
 
-	dst = (unsigned char *)dest;
-	source = (unsigned char *)src;
-	if (dst == NULL && source == NULL)
+	s_len = 0;
+	i = 0;
+	*substr = (char *)malloc((len + 1) * sizeof(char));
+	while (s[s_len] != '\0')
+		s_len++;
+	if (start >= s_len)
 		return (NULL);
-	if (dst < source)
+	if (len > s_len - start)
+		len = s_len - start;
+	while (i < len)
 	{
-		while (n--)
-			*dst++ = *source++;
+		substr[i] = s[start + i];
+		i++;
 	}
-	else
-	{
-		dst += n;
-		source += n;
-		while (n--)
-			*(--dst) = *(--source);
-	}
-	return (dest);
+	substr[len] = '\0';
+	return (substr);
 }
