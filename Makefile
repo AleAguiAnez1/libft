@@ -38,27 +38,27 @@ ft_strrchr.c \
 ft_strtrim.c \
 ft_substr.c \
 ft_tolower.c \
-ft_toupper.c 
+ft_toupper.c \
 
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -Ilibft/includes
+
+CFLAGS += -Wall -Werror -Wextra -Ilibft/includes
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-    ar rc $(NAME) $(OBJS)
-    ranlib $(NAME)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
-libft/obj/%.o: libft/src/%.c
-    $(CC) $(CFLAGS) -c $< -o $@
-
+libft/%.o: libft/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 clean:
-    rm -f $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-    rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
