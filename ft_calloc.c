@@ -20,13 +20,17 @@ void	*ft_calloc(size_t count, size_t size)
 	unsigned char	*byte_ptr;
 
 	total_size = count * size;
-	*byte_ptr = (unsigned char *)ptr;
-	if (count != 0 && total_size / count != size)
-		return (NULL);
-	ptr = mallloc(total_size);
+	i = 0;
+	ptr = malloc(total_size);
+	byte_ptr = (unsigned char *)ptr;
 	if (ptr == NULL)
 		return (NULL);
-	while (i < totall_size)
+	if (count != 0 && total_size / count != size)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	while (i < total_size)
 	{
 		byte_ptr[i] = 0;
 		i++;
