@@ -162,3 +162,8 @@
     * Entrada: Una cadena de caracteres (char *s) y un descriptor de archivo (int fd).
     * Salida: Nada.
     * Función: Envía la cadena 's' al descriptor de archivo especificado, seguida de un salto de línea.
+
+* ft_putnbr_fd:
+    * Entrada: Un número entero (int) y un descriptor de archivo (int).
+    * Salida: Nada.
+    * Función: Esta función toma un número entero y lo envía al descriptor de archivo especificado. Convierte el número entero en una cadena de caracteres y luego envía esa cadena al archivo. Es útil para escribir números en archivos o en la salida estándar (stdout) en C.
