@@ -31,11 +31,11 @@ static size_t	get_trimmed_len(char const *s1, char const *set)
 
 	len = 0;
 	start = 0;
-	end = len - 1;
 	while (s1[len] != '\0')
 		len++;
 	while (ft_isinset(s1[start], set))
 		start++;
+		end = len - 1;
 	while (end > start && ft_isinset(s1[end], set))
 		end--;
 	return (end - start + 1);

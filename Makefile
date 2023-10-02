@@ -16,7 +16,7 @@ SRCS = $ \
 ft_atoi.c \
 ft_bzero.c \
 ft_calloc.c \
-ft_ft_strdup.c \
+ft_strdup.c \
 ft_isalnum.c  \
 ft_isalpha.c \
 ft_isascii.c \
@@ -31,6 +31,14 @@ ft_strchr.c \
 ft_strjoin.c \
 ft_strlcat.c \
 ft_strlcpy.c \
+ft_split.c \
+ft_itoa.c \
+ft_putchar_fd.c \
+ft_putendl_fd.c \
+ft_putnbr_fd.c \
+ft_putstr_fd.c \
+ft_strmapi.c \
+ft_striteri.c \
 ft_strlen.c \
 ft_strncmp.c \
 ft_strnstr.c \
@@ -52,8 +60,9 @@ $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
-libft/%.o: libft/%.c
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
 	rm -f $(OBJS)
 

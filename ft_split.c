@@ -10,6 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+char	*ft_strndup(const char *s, size_t n)
+{
+	char	*dup;
+	size_t	len;
+
+	len = ft_strlen(s);
+	if (n < len)
+		len = n;
+	dup = (char *)malloc(len + 1);
+	if (!dup)
+		return (NULL);
+	ft_strlcpy(dup, s, len + 1);
+	return (dup);
+}
+
 static int	count_words(const char *s, char c)
 {
 	int	count;
@@ -29,6 +46,16 @@ static int	count_words(const char *s, char c)
 	return (count);
 }
 
+static char	*copy_word(const char *s, char c)
+{
+	int	word_len;
+
+	word_len = 0;
+	while (s[word_len] && s[word_len] != c)
+		word_len++;
+	return (ft_strndup(s, word_len));
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
@@ -44,14 +71,11 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
-		{
-			result[j++] = ft_strndup(&s[i], count_chars(&s[i], c));
-			if (!result[j - 1])
-				return (NULL);
-			while (s[i] && s[i] != c)
-				i++;
-		}
+		while (s[i] == c)
+			i++;
+		if (s[i])
+			result[j++] = copy_word(&s[i], c);
+		while (s[i] && s[i] != c)
 			i++;
 	}
 	result[j] = NULL;
