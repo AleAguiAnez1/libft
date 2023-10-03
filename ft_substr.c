@@ -20,6 +20,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	s_len = 0;
 	i = 0;
+	if (!s_len || !s)
+		return (NULL);
 	while (s[s_len] != '\0')
 		s_len++;
 	if (start >= s_len)

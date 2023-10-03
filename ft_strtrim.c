@@ -23,46 +23,20 @@ static int	ft_isinset(char c, const char *set)
 	return (0);
 }
 
-static size_t	get_trimmed_len(char const *s1, char const *set)
-{
-	size_t	len;
-	size_t	start;
-	size_t	end;
-
-	len = 0;
-	start = 0;
-	while (s1[len] != '\0')
-		len++;
-	while (ft_isinset(s1[start], set))
-		start++;
-		end = len - 1;
-	while (end > start && ft_isinset(s1[end], set))
-		end--;
-	return (end - start + 1);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	trimmed_len;
-	char	*result;
-	size_t	i;
 	size_t	start;
 	size_t	end;
 
-	if (!s1 || !set)
+	if (!s1)
 		return (NULL);
-	trimmed_len = get_trimmed_len(s1, set);
-	result = (char *)malloc((trimmed_len + 1) * sizeof(char));
-	if (!result)
-		return (NULL);
-	i = 0;
+	if (!set)
+		return (ft_strdup(s1));
 	start = 0;
-	end = trimmed_len - 1;
-	while (i < trimmed_len)
-	{
-		result[i] = s1[start + i];
-		i++;
-	}
-	result[i] = '\0';
-	return (result);
+	while (s1[start] && ft_isinset(s1[start], set))
+		start++;
+	end = ft_strlen(s1) - 1;
+	while (end > start && ft_isinset(s1[end], set))
+		end--;
+	return (ft_substr(s1, start, end - start + 1));
 }
