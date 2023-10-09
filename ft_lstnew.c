@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaguirr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 12:17:38 by alaguirr          #+#    #+#             */
-/*   Updated: 2023/09/13 12:53:49 by alaguirr         ###   ########.fr       */
+/*   Created: 2023/10/09 07:59:00 by alaguirr          #+#    #+#             */
+/*   Updated: 2023/10/09 07:59:16 by alaguirr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	unsigned char	*dst;
-	unsigned char	*source;
+	t_list	*new_node;
 
-	dst = (unsigned char *)dest;
-	source = (unsigned char *)src;
-	if (dst == NULL && source == NULL)
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (!new_node)
 		return (NULL);
-	if (dst == source)
-		return (dest);
-	if (dst == NULL || source == NULL)
-		return (NULL);
-	if (dst < source)
-	{
-		while (n--)
-			*dst++ = *source++;
-	}
-	else
-	{
-		dst += n;
-		source += n;
-		while (n--)
-			*(--dst) = *(--source);
-	}
-	return (dest);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
 }
