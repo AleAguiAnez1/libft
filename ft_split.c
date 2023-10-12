@@ -27,7 +27,33 @@ char	*ft_strndup(const char *s, size_t n)
 	return (dup);
 }
 
-static int	count_words(const char *s, char c)
+static char	*copy_word(const char *s, char c)
+{
+	int	word_len;
+
+	word_len = 0;
+	while (s[word_len] && s[word_len] != c)
+		word_len++;
+	return (ft_strndup(s, word_len));
+}
+
+static char	**allocate_memory(int word_count)
+{
+	char	**result;
+
+	result = (char **)malloc((word_count + 1) * sizeof(char *));
+	return (result);
+}
+
+static void	*free_result(char **result, int j)
+{
+	while (j > 0)
+		free(result[--j]);
+	free(result);
+	return (NULL);
+}
+
+int	count_words(const char *s, char c)
 {
 	int	count;
 
@@ -46,35 +72,29 @@ static int	count_words(const char *s, char c)
 	return (count);
 }
 
-static char	*copy_word(const char *s, char c)
-{
-	int	word_len;
-
-	word_len = 0;
-	while (s[word_len] && s[word_len] != c)
-		word_len++;
-	return (ft_strndup(s, word_len));
-}
-
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
 	int		i;
 	int		j;
+	char	**result;
 
-	if (!s)
-		return (NULL);
-	result = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
-	if (!result)
-		return (NULL);
 	i = 0;
 	j = 0;
+	if (!s)
+		return (NULL);
+	result = allocate_memory(count_words(s, c));
+	if (!result)
+		return (NULL);
 	while (s[i])
 	{
 		while (s[i] == c)
 			i++;
 		if (s[i])
+		{
 			result[j++] = copy_word(&s[i], c);
+			if (!result[j - 1])
+				return (free_result(result, j));
+		}
 		while (s[i] && s[i] != c)
 			i++;
 	}
