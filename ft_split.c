@@ -12,92 +12,80 @@
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s, size_t n)
+static size_t	word_count(const char *s, char c)
 {
-	char	*dup;
-	size_t	len;
+	size_t	i;
+	int		word;
 
-	len = ft_strlen(s);
-	if (n < len)
-		len = n;
-	dup = (char *)malloc(len + 1);
-	if (!dup)
-		return (NULL);
-	ft_strlcpy(dup, s, len + 1);
-	return (dup);
+	i = 0;
+	word = 0;
+	while (*s)
+	{
+		if (*s != c && word == 0)
+		{
+			i++;
+			word = 1;
+		}
+		if (*s == c)
+			word = 0;
+		s++;
+	}
+	return (i);
 }
 
-static char	*copy_word(const char *s, char c)
+static size_t	word_len(const char *s, int c)
 {
-	int	word_len;
+	size_t	i;
 
-	word_len = 0;
-	while (s[word_len] && s[word_len] != c)
-		word_len++;
-	return (ft_strndup(s, word_len));
+	i = 0;
+	while (*(s + i) && *(s + i) != c)
+		i++;
+	return (i);
 }
 
-static char	**allocate_memory(int word_count)
-{
-	char	**result;
-
-	result = (char **)malloc((word_count + 1) * sizeof(char *));
-	return (result);
-}
-
-static void	*free_result(char **result, int j)
+static void	free_result(char **result, int j)
 {
 	while (j > 0)
 		free(result[--j]);
 	free(result);
-	return (NULL);
 }
 
-int	count_words(const char *s, char c)
+static char	**ft_fill(const char *s, char c, char **result, size_t words)
 {
-	int	count;
-
-	count = 0;
-	while (*s)
-	{
-		if (*s != c)
-		{
-			count++;
-			while (*s && *s != c)
-				s++;
-		}
-		else
-			s++;
-	}
-	return (count);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		i;
-	int		j;
-	char	**result;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
+	while (i < words)
+	{
+		while (*(s + j) && *(s + j) == c)
+			j++;
+		*(result + i) = ft_strndup(s + j, word_len(s + j, c));
+		if (!*(result + i))
+		{
+			free_result(result, i);
+			return (NULL);
+		}
+		while (*(s + j) && *(s + j) != c)
+			j++;
+		i++;
+	}
+	*(result + i) = NULL;
+	return (result);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	size_t	words;
+	char	**result;
+
 	if (!s)
 		return (NULL);
-	result = allocate_memory(count_words(s, c));
+	words = word_count(s, c);
+	result = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!result)
 		return (NULL);
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		if (s[i])
-		{
-			result[j++] = copy_word(&s[i], c);
-			if (!result[j - 1])
-				return (free_result(result, j));
-		}
-		while (s[i] && s[i] != c)
-			i++;
-	}
-	result[j] = NULL;
+	result = ft_fill(s, c, result, words);
 	return (result);
 }

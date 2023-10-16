@@ -167,3 +167,53 @@
     * Entrada: Un número entero (int) y un descriptor de archivo (int).
     * Salida: Nada.
     * Función: Esta función toma un número entero y lo envía al descriptor de archivo especificado. Convierte el número entero en una cadena de caracteres y luego envía esa cadena al archivo. Es útil para escribir números en archivos o en la salida estándar (stdout) en C.
+
+* ft_strndup:
+    * Entrada: Una cadena de caracteres (const char *s) y un tamaño límite (size_t n).
+    * Salida: Un nuevo puntero a una copia duplicada de la cadena con un límite de tamaño o NULL si falla la asignación de memoria (char *).
+    * Función: Crea una copia duplicada de una cadena de caracteres en una nueva área de memoria asignada dinámicamente con un límite de tamaño.
+
+* ft_lstnew:
+    * Entrada: Un puntero void al contenido que se quiere almacenar en el nodo de la lista.
+    * Salida: Un puntero a una nueva estructura de lista (t_list).
+    * Función: Crea un nuevo nodo de lista y asigna el contenido proporcionado a ese nodo.
+
+* ft_lstadd_front:
+    * Entrada: Un puntero a un puntero de lista (t_list **) y un puntero al nuevo nodo (t_list *) que se agregará al frente de la lista.
+    * Salida: Nada.
+    * Función: Agrega un nuevo nodo al frente de la lista enlazada.
+
+* ft_lstsize:
+    * Entrada: Un puntero a una lista enlazada (t_list *).
+    * Salida: El número de elementos en la lista.
+    * Función: Calcula y devuelve el número de elementos en la lista enlazada.
+
+* ft_lstlast:
+    * Entrada: Un puntero a una lista enlazada (t_list *).
+    * Salida: Un puntero al último nodo de la lista.
+    * Función: Encuentra y devuelve un puntero al último nodo en la lista.
+
+* ft_lstadd_back:
+    * Entrada: Un puntero a un puntero de lista (t_list **) y un puntero al nuevo nodo (t_list *) que se agregará al final de la lista.
+    * Salida: Nada.
+    * Función: Agrega un nuevo nodo al final de la lista enlazada.
+
+* ft_lstdelone:
+    * Entrada: Un puntero a un nodo de lista (t_list *) y un puntero a una función que elimina el contenido del nodo (void (*del)(void *)).
+    * Salida: Nada.
+    * Función: Elimina un nodo específico de la lista y aplica la función de eliminación proporcionada al contenido del nodo.ft_lstclear(t_list **lst, void (*del)(void *)):
+
+* ft_lstclear:
+    * Entrada: Un puntero a un puntero de lista (t_list **) y un puntero a una función que elimina el contenido del nodo (void (*del)(void *)).
+    * Salida: Nada.
+    * Función: Elimina todos los nodos de la lista y aplica la función de eliminación proporcionada a cada contenido de nodo.
+
+* ft_lstiter:
+    * Entrada: Un puntero a una lista enlazada (t_list *) y un puntero a una función que toma un puntero al contenido del nodo (void (*f)(void *)).
+    * Salida: Nada.
+    * Función: Aplica la función proporcionada a cada contenido de nodo en la lista.
+
+*ft_lstmap:
+    * Entrada: Un puntero a una lista enlazada (t_list *), un puntero a una función que mapea el contenido del nodo (void *(*f)(void *)), y un puntero a una función que elimina el contenido del nodo (void (*del)(void *)).
+    * Salida: Un puntero a una nueva lista enlazada que se crea aplicando la función f al contenido de los nodos de la lista original.
+    * Función: Crea una nueva lista enlazada aplicando la función f al contenido de los nodos de la lista original. Si se proporciona una función del, se utiliza para eliminar el contenido de cualquier nodo en caso de error. Esta función es útil para crear una nueva lista con contenido modificado basado en la lista original.
